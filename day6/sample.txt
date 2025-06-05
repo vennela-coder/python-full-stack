@@ -1,0 +1,4 @@
+sam 23
+ram 32
+jam 26
+fam 27
