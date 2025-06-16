@@ -1,4 +1,5 @@
 import React, { useState } from 'react' 
+import '../styles/CricketScore.css' ;
 
 const CricketScore = (props) => {
     console.log("props" ,props)
@@ -55,16 +56,20 @@ const handledotball=()=>{
 
 
   return (
-    <>
-        <h1>Scrore : {runs} / {wickets}</h1>
-        <h2>Current Over : {overs}</h2>
-        <h2>Overs Left :{props.totalOvers-overs} </h2>
-        <h2>DOtballs : {dotballs} </h2>
+    <>  <div className='container'>
+            <div className='content'>
+            <h1>SCORE : {runs} / {wickets}</h1>
+            <h2>CURRENT OVERS : {overs}</h2>
+            <h2>OVERS LEFT :{props.totalOvers-overs} </h2>
+            <h2>DOTBALLS : {dotballs} </h2>
+            </div>
+        
         {
             wickets < 10 && runs < target ?
-            <div>
+            <div className='button'>
                 <button onClick={()=>handleRuns(6)} >Six</button>
                 <button onClick={()=>handleRuns(4)} >Four</button>
+                <button onClick={handleWicket} >Wicket</button>
                 {
                     //Add 3 2 dotball also
                 }
@@ -74,11 +79,13 @@ const handledotball=()=>{
                 
                 <button onClick={handleovers}>currentOvers</button>
                 <button onClick={handledotball}>dotballs</button>
-                <button onClick={handleWicket} >Wicket</button>
+               
             </div>
             :
             <h2>Game Over</h2>
+
         }
+        </div>
 
 
     </>
