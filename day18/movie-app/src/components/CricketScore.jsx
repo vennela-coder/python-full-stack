@@ -11,6 +11,7 @@ const CricketScore = (props) => {
     const [overs , setOvers] = useState(0.0);
     const [dotballs,setdotballs]=useState(0);
     const [left,setleftOvers]=useState(props.totalOvers);
+    let temp = props.totalOvers-  overs
 
 
 
@@ -60,12 +61,17 @@ const handledotball=()=>{
             <div className='content'>
             <h1>SCORE : {runs} / {wickets}</h1>
             <h2>CURRENT OVERS : {overs}</h2>
-            <h2>OVERS LEFT :{props.totalOvers-overs} </h2>
+
+          
+            <h2>OVERS LEFT :{temp} </h2>
+            
+            
             <h2>DOTBALLS : {dotballs} </h2>
             </div>
         
         {
-            wickets < 10 && runs < target ?
+            
+            wickets < 10 && runs < target && temp > 0?
             <div className='button'>
                 <button onClick={()=>handleRuns(6)} >Six</button>
                 <button onClick={()=>handleRuns(4)} >Four</button>
@@ -76,9 +82,9 @@ const handledotball=()=>{
                 <button onClick={()=>handleRuns(1)} >One</button>
                 <button onClick={()=>handleRuns(2)} >two</button>
                 <button onClick={()=>handleRuns(3)} >three</button>
-                
-                <button onClick={handleovers}>currentOvers</button>
                 <button onClick={handledotball}>dotballs</button>
+                <button onClick={handleovers}>currentOvers</button>
+                
                
             </div>
             :
